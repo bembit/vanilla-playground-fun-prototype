@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html style="background-image: radial-gradient(circle at 100% 100%, #000a12, #021f37 95%, #021f37 95%);" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a blog design.">
+    <title>About</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="/js/main/ui.js" defer></script>
+    <script src="/js/main/routing.js" defer></script>
+    <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>fetch/render, routing, ui layout.</h1>
+    </header>
+
+    <div class="interface-options">
+        <a id="enoughIsEnough" title="Leave me alone!">Leave me alone with your UI stuff.</a>
+        <i id="themeSelector" class="fa-solid fa-palette"></i>
+        <ul class="theme-dropdown">
+            <li><button onclick="themeSwitch('light'); trackTheme('light')" title="Switch to Light theme." aria-label="Theme switch selection button for light theme.">Light</button></li>
+            <li><button class="active" onclick="themeSwitch('dark'); trackTheme('dark')" title="Switch to Dark theme." aria-label="Theme switch selection button for dark theme.">Dark</button></li>
+            <li><button onclick="themeSwitch('babe'); trackTheme('babe')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Babe</button></li>
+            <li><button onclick="themeSwitch('green'); trackTheme('green')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Green</button></li>
+            <li><button onclick="themeSwitch('pastel'); trackTheme('pastel')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Pastel</button></li>
+            <li><button onclick="themeSwitch('pretty'); trackTheme('pretty')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Pretty</button></li>
+            <li><button onclick="themeSwitch('hacky'); trackTheme('hacky')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Hacky</button></li>
+            <li><button onclick="themeSwitch('corpo'); trackTheme('corpo')" title="Just go with the stock blue colors!" aria-label="Theme switch selection button for a custom theme.">Corpo</button></li>
+        </ul>
+        <i id="toggleFullscreen" onclick="toggleFullscreen()" class="fa-solid fa-tv"></i>
+        <label title="Change Header to sticky." class="toggle-switch">
+            <input type="checkbox" id="toggleStickyNav" class="" onchange="toggleStickyNav()">
+            <span class="slider"></span>
+        </label>
+        <i id="toggleNav" onclick="toggleNav()"  class="fa-solid fa-compass"></i>
+        <i id="toggleHeader" onclick="toggleHeader()" class="fa fa-arrow-down"></i>
+        <i id="toggleAside" onclick="toggleAside()" class="fas fa-arrow-left"></i>
+        <div class="visual-controls">
+            <div class="font-size-controls">
+                <i id="decreaseFontSize" class="fas fa-minus" aria-label="Button to decrease the font size."></i>
+                <i id="increaseFontSize" class="fas fa-plus" aria-label="Button to increase the font size."></i>
+            </div>  
+            <span class="tips">font size, padding</span>
+            <input type="range" id="paddingSlider" min="0" max="200" step="25" value="0" role="slider" title="Change the contents padding." aria-label="Input range slider to change the padding of the contents text.">
+        </div>
+        <!-- why do I use two toggles for mobile? -->
+        <i id="mobileNav" onclick="toggleMobileNav()" class="fa-solid fa-compass"></i>
+        <i id="mobileNavIcon" onclick="toggleMobileNav()" style="display: none;" class="fa-solid fa-compass"></i>
+    </div>
+
+    <nav>
+        <div class="profile">
+            <div>
+                <div class="profile-picture"></div>
+                <h2>kyle reese</h2>
+            </div>
+            
+            <div>
+                <div class="profile-socials">
+                    <a href="https://www.github.com" aria-label="Github icon, linking to the GitHub profile."><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com" aria-label="LinkedIn icon, linking to the LinkedIn profile."><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter icon, linking to the Twitter profile."><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter icon, linking to the Twitter profile."><i class="fa-solid fa-square-rss"></i></i></i></a>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ipsum dolor ipsa quam cupiditate odio?
+                    <a href="/about">More..</a>
+                </p>
+                <button onclick="toggleProfile()">Don't care. x</button>
+            </div>
+        </div>
+        <ul>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/components/main/about.html" class="nav-link">About</a></li>
+            <li><a href="/components/main/404.html" class="nav-link">NotFound</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main">
+
+        <article id="article">
+            
+            <div id="content-wrapper">
+
+                <div id="content">
+
+                    <h2>about</h2>
+
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, fugit! Tempora nulla necessitatibus, iste amet blanditiis vel perspiciatis earum eum illum eligendi autem nam odit exercitationem, harum molestias magnam? Dolores voluptatem sequi tempore architecto iste repellendus sunt voluptates facere cum eveniet soluta voluptate dolorem, laboriosam, dolor consectetur explicabo saepe quia. Non excepturi inventore tempora rerum veritatis iusto deleniti quis deserunt cum placeat! Libero enim, iste officia nemo quasi neque repellat. Distinctio odio iure dicta mollitia blanditiis, quisquam magni tempore, autem animi quam possimus cumque corporis commodi quia aut architecto modi similique dolores nesciunt fuga maiores voluptas nulla. A error voluptatibus temporibus deserunt, alias magni deleniti, facilis vitae iste nobis sed libero tenetur. Deleniti excepturi accusamus reprehenderit consectetur, odio earum veniam perferendis cumque id voluptatibus! Iure aperiam voluptates nihil quidem reiciendis corporis labore porro itaque eaque tenetur, similique quae veniam architecto. Necessitatibus suscipit quibusdam cupiditate corrupti alias! Aliquid dignissimos dolorem eius excepturi dicta sit. Optio deleniti incidunt porro ipsam, nesciunt odit tempora velit cum reiciendis ad maxime, consequatur corporis modi est quaerat. Accusamus amet veritatis cumque tempora vitae, ab, totam sunt mollitia reiciendis ipsum corrupti pariatur in quos ad sed temporibus laudantium ex doloribus ipsa sapiente asperiores veniam! Corporis assumenda architecto illo necessitatibus voluptatum quaerat earum fugiat, repellat mollitia distinctio quos ex magni repudiandae ab at cumque voluptatem quas perspiciatis veritatis nam odio nesciunt minima. Iste eos, asperiores ducimus explicabo, laboriosam voluptatibus magni consectetur quae molestias modi, a assumenda alias nisi? Provident, libero veniam odio repellat, facilis voluptatibus incidunt ut vel ea quas aliquam quo suscipit. Ducimus quasi illo voluptatum reiciendis voluptates quisquam. Corrupti quod itaque in. Natus obcaecati nam quae iure reiciendis assumenda incidunt architecto vel, esse dolorum sint. Velit, id. Beatae modi voluptatem, quis autem hic, enim delectus neque cupiditate ex ipsam numquam dolores distinctio. Possimus at nisi libero quos vitae. A quo accusamus non debitis cumque. Quam maxime placeat ullam in provident culpa tenetur ut doloremque molestias! Rem itaque autem enim! Accusantium, officia error hic ad ducimus nesciunt, laborum iusto, unde itaque maiores dolore facilis? Iure culpa ullam labore a explicabo nisi quisquam cum inventore nesciunt, asperiores similique non maxime nihil mollitia ipsum numquam sed ratione hic adipisci, voluptatibus delectus dolores. Deserunt perspiciatis tempora quae laborum autem numquam ad inventore tenetur deleniti ipsum quia nam sunt, natus odit earum hic iste atque provident ipsa sequi doloribus! Quos, illum, inventore veritatis veniam incidunt nihil culpa sapiente et quod esse neque voluptatem delectus. Temporibus dolorem vel voluptates ab rerum nihil molestiae similique? Voluptatibus nisi vitae maiores atque unde dolore pariatur, error id quod exercitationem cupiditate consequatur incidunt, quaerat saepe, esse sint eum quae. Ullam, nesciunt amet officiis necessitatibus dolorem sapiente sit ad labore reprehenderit sequi excepturi qui impedit, non omnis!</p>
+
+                </div>
+
+            </div>
+            
+        </article>
+
+        <aside id="aside">
+            <h3>Metadata for nerds</h3>
+            <h3>Having fun? In this economy?</h3>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>2024 - <a href="/" class="nav-link">javascriptiseasy</a> by <a href="https://example.com">me</a></p>
+    </footer>
+
+</body>
+</html>

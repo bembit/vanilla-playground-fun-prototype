@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html style="background-image: radial-gradient(circle at 100% 100%, #000a12, #021f37 95%, #021f37 95%);" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a blog design.">
+    <title>fetch/render, routing, ui layout.</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <script src="/js/main/ui.js" defer></script>
+    <script src="/js/main/routing.js" defer></script>
+    <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>fetch/render, routing, ui layout.</h1>
+    </header>
+
+    <div class="interface-options">
+        <a id="enoughIsEnough" title="Close."><i id="themeSelector" class="fa fa-arrow-up"></i>Close</a>
+        <i id="themeSelector" class="fa-solid fa-palette"></i>
+        <ul class="theme-dropdown">
+            <li><button onclick="themeSwitch('light'); trackTheme('light')" title="Switch to Light theme." aria-label="Theme switch selection button for light theme.">Light</button></li>
+            <li><button class="active" onclick="themeSwitch('dark'); trackTheme('dark')" title="Switch to Dark theme." aria-label="Theme switch selection button for dark theme.">Dark</button></li>
+            <li><button onclick="themeSwitch('babe'); trackTheme('babe')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Babe</button></li>
+            <li><button onclick="themeSwitch('pastel'); trackTheme('pastel')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Pastel</button></li>
+            <li><button onclick="themeSwitch('pretty'); trackTheme('pretty')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Pretty</button></li>
+            <li><button onclick="themeSwitch('hacky'); trackTheme('hacky')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Hacky</button></li>
+        </ul>
+        <i id="toggleFullscreen" onclick="toggleFullscreen()" class="fa-solid fa-tv"></i>
+        <label title="Change Header to sticky." class="toggle-switch">
+            <input type="checkbox" id="toggleStickyNav" class="" onchange="toggleStickyNav()">
+            <span class="slider"></span>
+        </label>
+        <i id="toggleNav" onclick="toggleNav()"  class="fa-solid fa-compass"></i>
+        <i id="toggleHeader" onclick="toggleHeader()" class="fa fa-arrow-down"></i>
+        <i id="toggleAside" onclick="toggleAside()" class="fas fa-arrow-left"></i>
+        <div class="visual-controls">
+            <div class="font-size-controls">
+                <i id="decreaseFontSize" class="fas fa-minus" aria-label="Button to decrease the font size."></i>
+                <i id="increaseFontSize" class="fas fa-plus" aria-label="Button to increase the font size."></i>
+            </div>  
+            <span class="tips">font size, padding</span>
+            <input type="range" id="paddingSlider" min="0" max="200" step="25" value="0" role="slider" title="Change the contents padding." aria-label="Input range slider to change the padding of the contents text.">
+        </div>
+        <!-- why do I use two toggles for mobile? -->
+        <i id="mobileNav" onclick="toggleMobileNav()" class="fa-solid fa-bars"></i>
+    </div>
+
+    <nav>
+        <div class="profile">
+            <div>
+                <div class="profile-picture"></div>
+                <h2>kyle reese</h2>
+            </div>
+            
+            <div>
+                <div class="profile-socials">
+                    <a href="https://www.github.com" aria-label="Github icon, linking to the GitHub profile."><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com" aria-label="LinkedIn icon, linking to the LinkedIn profile."><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter icon, linking to the Twitter profile."><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter icon, linking to the Twitter profile."><i class="fa-solid fa-square-rss"></i></i></i></a>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis ipsum dolor ipsa quam cupiditate odio?
+                    <a href="/components/main/about.html" class="nav-link">More..</a>
+                </p>
+                <button onclick="toggleProfile()">Don't care. x</button>
+            </div>
+        </div>
+        <input type="search" id="search" placeholder="Search.." autocomplete="off">
+        <div id="search-results"></div>
+        <ul>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/components/main/about.html" class="nav-link">About</a></li>
+            <li><a href="/components/main/404.html" class="nav-link">NotFound</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main">
+
+        <article id="article">
+            
+            <div id="content-wrapper">
+
+                <div id="content">
+
+                    <a href="/components/articles/article-test-1/article-test-1.html" class="content-preview">
+                        <h2>Testing the prototype.</h2>
+                        <h3>Documenting how to rewrite the whole thing.</h3>
+                        <p>I'm baby tumblr 8-bit truffaut bodega boys big mood artisan hammock austin 90's PBR&B single-origin coffee knausgaard. Gochujang vaporware sartorial, typewriter wayfarers williamsburg 3 wolf moon copper mug disrupt church-key ethical blue bottle stumptown. Roof party godard meh YOLO lomo cupping.</p>
+                        <button class="btn">Read more..</button>
+                    </a>
+
+                    <a href="/components/articles/article-test-2/article-test-2.html" class="content-preview">
+                        <h2>Writing my own routing in Javascript.</h2>
+                        <h3>The World as Will and Representation 2.</h3>
+                        <p>I'm baby tumblr 8-bit truffaut bodega boys big mood artisan hammock austin 90's PBR&B single-origin coffee knausgaard. Gochujang vaporware sartorial, typewriter wayfarers williamsburg 3 wolf moon copper mug disrupt church-key ethical blue bottle stumptown. Roof party godard meh YOLO lomo cupping. Poke dreamcatcher whatever roof party man braid disrupt, banjo portland coloring book ascot offal selfies pork belly.</p>
+                        <button class="btn">Read more..</button>
+                    </a>
+
+                    <a href="/components/articles/article-test-3/article-test-3.html" class="content-preview">
+                        <h2>So many questions.</h2>
+                        <h3>The World as Will and Representation 2.</h3>
+                        <p>I'm baby tumblr 8-bit truffaut bodega boys big mood artisan hammock austin 90's PBR&B single-origin coffee knausgaard.</p>
+                        <button class="btn">Read more..</button>
+                    </a>
+
+                </div>
+
+            </div>
+            
+        </article>
+
+        <aside id="aside">
+            <h3>So many questions.</h3>
+            <h3>Routes from links.</h3>
+            <h3>Event listener dressing, undressing.</h3>
+            <h3>split to multiple comps, fetches as initial idea.</h3> 
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>2024 - <a href="/" class="nav-link">javascriptiseasy</a> by <a href="https://example.com">me</a></p>
+    </footer>
+
+</body>
+</html>

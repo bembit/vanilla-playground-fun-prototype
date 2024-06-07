@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html style="background-image: radial-gradient(circle at 100% 100%, #000a12, #021f37 95%, #021f37 95%);" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is the first article.">
+    <title>Article Test 1</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="/js/main/ui.js" defer></script>
+    <script src="/js/main/routing.js" defer></script>
+    <script src="https://kit.fontawesome.com/df3e6f116a.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>fetch/render, routing, ui layout.</h1>
+    </header>
+
+    <div class="interface-options">
+        <!-- remove ui stuff -->
+        <a id="enoughIsEnough" title="Leave me alone!">Leave me alone with your UI stuff.</a>
+        <!-- theme selector palette -->
+        <i id="themeSelector" class="fa-solid fa-palette"></i>
+        <ul class="theme-dropdown">
+            <li><button onclick="themeSwitch('light'); trackTheme('light')" title="Switch to Light theme." aria-label="Theme switch selection button for light theme.">Light</button></li>
+            <li><button class="active" onclick="themeSwitch('dark'); trackTheme('dark')" title="Switch to Dark theme." aria-label="Theme switch selection button for dark theme.">Dark</button></li>
+            <li><button onclick="themeSwitch('babe'); trackTheme('babe')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Babe</button></li>
+            <li><button onclick="themeSwitch('green'); trackTheme('green')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Green</button></li>
+            <li><button onclick="themeSwitch('pastel'); trackTheme('pastel')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Pastel</button></li>
+            <li><button onclick="themeSwitch('pretty'); trackTheme('pretty')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Pretty</button></li>
+            <li><button onclick="themeSwitch('hacky'); trackTheme('hacky')" title="Switch to Custom theme." aria-label="Theme switch selection button for a custom theme.">Hacky</button></li>
+            <li><button onclick="themeSwitch('corpo'); trackTheme('corpo')" title="Just go with the stock blue colors!" aria-label="Theme switch selection button for a custom theme.">Corpo</button></li>
+        </ul>
+        <i id="toggleFullscreen" onclick="toggleFullscreen()" class="fa-solid fa-tv"></i>
+        <label title="Change Header to sticky." class="toggle-switch">
+            <input type="checkbox" id="toggleStickyNav" class="" onchange="toggleStickyNav()">
+            <span class="slider"></span>
+        </label>
+        <i id="toggleNav" onclick="toggleNav()"  class="fa-solid fa-compass"></i>
+        <i id="toggleHeader" onclick="toggleHeader()" class="fa fa-arrow-down"></i>
+        <i id="toggleAside" onclick="toggleAside()" class="fas fa-arrow-left"></i>
+        <div class="visual-controls">
+            <div class="font-size-controls">
+                <i id="decreaseFontSize" class="fas fa-minus" aria-label="Button to decrease the font size."></i>
+                <i id="increaseFontSize" class="fas fa-plus" aria-label="Button to increase the font size."></i>
+            </div>  
+            <span class="tips">font size, padding</span>
+            <input type="range" id="paddingSlider" min="0" max="200" step="25" value="0" role="slider" title="Change the contents padding." aria-label="Input range slider to change the padding of the contents text.">
+        </div>
+        <i id="mobileNav" onclick="toggleMobileNav()" class="fa-solid fa-compass"></i>
+        <i id="mobileNavIcon" onclick="toggleMobileNav()" style="display: none;" class="fa-solid fa-compass"></i>
+    </div>
+
+    <nav>
+        <div class="profile">
+            <div>
+                <div class="profile-picture"></div>
+                <h2>kyle reese</h2>
+            </div>
+            
+            <div>
+                <div class="profile-socials">
+                    <a href="https://www.github.com" aria-label="Github icon, linking to the GitHub profile."><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com" aria-label="LinkedIn icon, linking to the LinkedIn profile."><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter icon, linking to the Twitter profile."><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter icon, linking to the Twitter profile."><i class="fa-solid fa-square-rss"></i></i></i></a>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, repellendus quos. Quas a inventore expedita!
+                    <a href="/about">More..</a>
+                </p>
+                <button onclick="toggleProfile()">Don't care. x</button>
+            </div>
+        </div>
+        <ul>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/components/main/about.html" class="nav-link">About</a></li>
+            <li><a href="/components/main/404.html" class="nav-link">NotFound</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main">
+        <!-- fallback for refresh -->
+        <a class="back-button" href="/">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <article id="article">
+    
+            <div id="content-wrapper">
+                <!-- onclick="fetchTest()" -->
+                <div id="content">
+                    <h2>The World as Will and Representation 2.</h2>
+        
+                    <h3>Works fine, time to rewrite it in Rust.</h3>   
+                    <details open>
+                        <summary title="Hide this asset.">click this row to hide images / insertions</summary> 
+                        <img src="/assets/bane.jpg_large" alt="">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quis magnam ut doloremque animi cupiditate.
+                            <a href="/about">More..</a>
+                        </p>
+                    </details>
+        
+                    <p>
+                        I'm baby tumblr 8-bit truffaut bodega boys big mood artisan hammock austin 90's PBR&B single-origin coffee knausgaard. Gochujang vaporware sartorial, typewriter wayfarers williamsburg 3 wolf moon copper mug disrupt church-key ethical blue bottle stumptown. Roof party godard meh YOLO lomo cupping. Poke dreamcatcher whatever roof party man braid disrupt, banjo portland coloring book ascot offal selfies pork belly. Tilde keffiyeh etsy godard, hella shaman synth roof party art party echo park banjo green juice direct trade ascot. Gentrify microdosing authentic irony wayfarers air plant hot chicken post-ironic, affogato sriracha.
+                    </p>
+                    <details open>
+                        <summary title="Hide this asset.">click this row to hide images / insertions</summary> 
+                        <figure>
+                            <img src="/assets/bane.jpg_large" alt="">
+                            <figcaption>The inevitable responsive design.</figcaption>
+                        </figure>
+                    
+                    </details>
+                    
+                    <h4>Figuring out pre/code blocks without libraries.</h4>
+
+                    <details open>
+                    <summary title="Hide this asset.">click this row to hide images / insertions</summary> 
+                    <figure>
+                        <pre>
+                            <code>
+        <span>Copy</span>function changePadding(value) {
+        let paddingIncrement = value;
+        
+        // calculate new padding for both left and right sides
+        let newPadding = Math.max(0, paddingIncrement);
+        
+        content.style.paddingLeft = newPadding + "px";
+        content.style.paddingRight = newPadding + "px";
+        }                            </code>
+                        </pre>
+                        <figcaption>God, this white-space CSS is killing me.</figcaption>
+                    </figure>
+                    </details>
+
+                    <p>
+                        Everyday carry yr tousled man braid you probably haven't heard of them twee kitsch marxism man bun post-ironic. Cloud bread raclette big mood mixtape blog raw denim. Waistcoat heirloom banh mi helvetica kinfolk blog aesthetic literally tumblr quinoa distillery 90's YOLO. Normcore edison bulb actually direct trade pickled plaid quinoa asymmetrical sriracha blackbird spyplane bruh shaman. Mixtape vape williamsburg vaporware, coloring book tonx neutra green juice keytar la croix cardigan put a bird on it iPhone. Aesthetic DIY vape offal.
+                    </p>
+                    <details open>
+                        <summary title="Hide this asset.">show/hide</summary> 
+                        <img src="/assets/price.jpg" alt="">
+                    </details>
+                    <p>
+                        Cray PBR&B YOLO pug taiyaki, forage succulents cornhole schlitz unicorn. Occupy put a bird on it butcher migas jianbing scenester vaporware selfies. Same fingerstache venmo thundercats butcher ennui gorpcore, humblebrag microdosing synth hell of jianbing raclette fashion axe tumblr. Church-key marxism taiyaki fingerstache, sartorial kale chips hot chicken distillery bushwick master cleanse deep v poke. Plaid hoodie fixie gochujang yuccie authentic, +1 tote bag ethical. Master cleanse VHS food truck blue bottle, cred shabby chic kickstarter adaptogen PBR&B man bun letterpress. Ugh irony skateboard synth gatekeep ramps fanny pack woke cupping, intelligentsia biodiesel green juice pickled 3 wolf moon polaroid.
+                    </p>
+                    <p>
+                        Cray PBR&B YOLO pug taiyaki, forage succulents cornhole schlitz unicorn. Occupy put a bird on it butcher migas jianbing scenester vaporware selfies. Same fingerstache venmo thundercats butcher ennui gorpcore, humblebrag microdosing synth hell of jianbing raclette fashion axe tumblr. Church-key marxism taiyaki fingerstache, sartorial kale chips hot chicken distillery bushwick master cleanse deep v poke. Plaid hoodie fixie gochujang yuccie authentic, +1 tote bag ethical. Master cleanse VHS food truck blue bottle, cred shabby chic kickstarter adaptogen PBR&B man bun letterpress. Ugh irony skateboard synth gatekeep ramps fanny pack woke cupping, intelligentsia biodiesel green juice pickled 3 wolf moon polaroid.
+                    </p>
+                </div>
+            </div>
+        </article>
+    
+        <aside id="aside">
+            <h3>Metadata for nerds</h3>
+            <ul>
+                <li><a href="/">date:</a><span>2024.04.27</span></li>
+                <li><a href="/">tags:</a><span>CSS</span><span>Javascript</span></li>
+                <li><a href="/">last edited:</a><span>2024.05.03</span></li>
+                <li><a href="/">related:</a><span>noidea</span></li>
+            </ul>
+            <h3>Related</h3>
+            <ul>
+                <li><a href="/">date:</a><span>2024.04.27</span></li>
+                <li><a href="/">tags:</a><span>CSS</span><span>Javascript</span></li>
+                <li><a href="/">last edited:</a><span>2024.05.03</span></li>
+                <li><a href="/">related:</a><span>noidea</span></li>
+            </ul>
+            <h3>having fun? in this economy?</h3>
+        </aside>
+    
+    </main>
+
+    <footer>
+        <p>2024 - <a href="/" class="nav-link">javascriptiseasy</a> by <a href="https://example.com">me</a></p>
+    </footer>
+
+</body>
+</html>
