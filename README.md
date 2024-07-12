@@ -1,27 +1,24 @@
-## Prototyping a blog. Life story in readme.
+## Prototyping a vanilla blog. Life story in readme.
 
-Welcome to the <strike>shitty</strike> hacky prototypes.
-Where I don't care, just build. Explore things.
-JavaScript is just a scripting language. And frontend is nothing anyway.
+JavaScript is just an easy scripting language.
+
+#### Is this thing good?
+- No it's shit, but I had fun.
+
+#### Does it work?
+- Yes.
 
 ### Taking frameworks for granted.
 
 - All i wanted is a blog layout in CSS under 150 lines of code on a sunday morning. 
-- Ended up adding things in, make it feel real bloggy, and useable.
-- Also, I couldn't just stop dicking around with it. 
+- I couldn't just stop dicking around with it. 
 
 ### I needed some answer.
 1. Do I need a framework for everything?
 2. Do I even need a library like HTMX?
 3. Am I just a framework enjoyer (mostly yes), tapping `npm run build` and pretending to know what the hell is going on?
 
-#### Is this thing good?
-- Not really.
-
-#### Does it work?
-- Yes.
-
-#### Demo.
+#### Demo with bonus console log disco.
 
 <!-- images -->
 <img src="./disco.png" width="100%" />
